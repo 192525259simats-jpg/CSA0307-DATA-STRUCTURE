@@ -1,0 +1,1283 @@
+/* ==========================================================================
+   COMPONENTS.CSS - Modern Hospital Healthcare UI Components
+   Crisp White Cards, Clinical Triage Badges, Clean Records & Modals
+   ========================================================================== */
+
+/* ==========================================================================
+   1. STATISTIC CARDS & EMERGENCY STATUS WIDGET
+   ========================================================================== */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    padding: 1.35rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.28s cubic-bezier(0.2, 0, 0, 1),
+                box-shadow 0.28s cubic-bezier(0.2, 0, 0, 1),
+                border-color 0.25s ease;
+    cursor: default;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: var(--shadow-card-hover);
+    border-color: #CBDCE9;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    flex-shrink: 0;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stat-card:hover .stat-icon {
+    transform: scale(1.1);
+}
+
+.icon-cyan { background: #E0F7FA; color: #00838F; border: 1px solid #B2EBF2; }
+.icon-yellow { background: #FFF8E1; color: #F57F17; border: 1px solid #FFECB3; }
+.icon-blue { background: #E3F2FD; color: #1565C0; border: 1px solid #BBDEFB; }
+.icon-green { background: #E8F5E9; color: #2E7D32; border: 1px solid #C8E6C9; }
+.icon-red { background: #FFEBEE; color: #C62828; border: 1px solid #FFCDD2; }
+.icon-indigo { background: #EDE7F6; color: #4527A0; border: 1px solid #D1C4E9; }
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+.stat-value {
+    font-size: 1.85rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0.15rem 0;
+    font-family: var(--font-heading);
+    color: var(--navy-dark);
+}
+
+.stat-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.stat-critical.critical-pulse {
+    border: 1.5px solid #EF9A9A;
+    background: #FFF9F9;
+}
+
+/* Emergency Department Live Status Banner */
+.er-status-banner {
+    background: linear-gradient(135deg, #16324F, #0D2137);
+    color: #FFFFFF;
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    box-shadow: 0 4px 16px rgba(22, 50, 79, 0.15);
+}
+
+.er-status-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.er-status-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    color: #38BDF8;
+}
+
+.er-status-title h3 {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.er-status-title span {
+    font-size: 0.78rem;
+    color: #94A3B8;
+}
+
+.er-status-metrics {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.er-metric-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.er-metric-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: #94A3B8;
+    font-weight: 700;
+}
+
+.er-metric-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   2. CLINICAL SEVERITY BADGES & LABELS
+   ========================================================================== */
+
+.badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: transform 0.2s ease;
+}
+
+.badge-pill:hover {
+    transform: translateY(-1px);
+}
+
+.badge-pill.sev-5 {
+    background: #FDEDED;
+    color: #C62828;
+    border: 1px solid #FFCDD2;
+}
+
+.badge-pill.sev-4 {
+    background: #FFF3E0;
+    color: #E65100;
+    border: 1px solid #FFE0B2;
+}
+
+.badge-pill.sev-3 {
+    background: #FFFDE7;
+    color: #F57F17;
+    border: 1px solid #FFF59D;
+}
+
+.badge-pill.sev-2 {
+    background: #E3F2FD;
+    color: #1565C0;
+    border: 1px solid #BBDEFB;
+}
+
+.badge-pill.sev-1 {
+    background: #E8F5E9;
+    color: #2E7D32;
+    border: 1px solid #C8E6C9;
+}
+
+.id-badge {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--primary-blue);
+    background: #EBF4FC;
+    border: 1px solid #BBDEFB;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+}
+
+.status-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.status-waiting { background: #FFF8E1; color: #F57F17; border: 1px solid #FFE082; }
+.status-in-treatment { background: #E3F2FD; color: #1565C0; border: 1px solid #90CAF9; }
+.status-treated { background: #E8F5E9; color: #2E7D32; border: 1px solid #A5D6A7; }
+
+/* ==========================================================================
+   3. NEXT PATIENT SPOTLIGHT HERO CARD (HOSPITAL BLUE ACCENT)
+   ========================================================================== */
+
+.next-patient-hero {
+    background: #FFFFFF;
+    border: 1.5px solid #BBDEFB;
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(25, 118, 210, 0.08);
+    transition: transform 0.28s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.28s ease;
+}
+
+.next-patient-hero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(25, 118, 210, 0.14);
+}
+
+.hero-status-ribbon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary-blue);
+    background: #EBF4FC;
+    border: 1px solid #BBDEFB;
+    padding: 0.3rem 0.85rem;
+    border-radius: 20px;
+    margin-bottom: 1.25rem;
+}
+
+.pulse-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--sev-5-red);
+    box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.25);
+    animation: clinicalPulse 1.8s infinite ease-in-out;
+}
+
+.hero-main-content {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-id-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.hero-patient-id {
+    font-family: var(--font-mono);
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--navy-dark);
+}
+
+.hero-info-col h2 {
+    font-size: 1.55rem;
+    color: var(--navy-dark);
+    margin-bottom: 0.35rem;
+}
+
+.hero-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+.hero-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.hero-meta-row strong {
+    color: var(--navy-dark);
+}
+
+.hero-action-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sev-glow-5 {
+    border-color: #EF9A9A;
+    box-shadow: 0 4px 20px rgba(229, 57, 53, 0.1);
+}
+
+.sev-glow-4 {
+    border-color: #FFE0B2;
+    box-shadow: 0 4px 20px rgba(251, 140, 0, 0.1);
+}
+
+.empty-hero {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    border: 1px solid var(--border-light);
+}
+
+.hero-icon {
+    font-size: 2.5rem;
+}
+
+/* ==========================================================================
+   4. ACTIVE RESUSCITATION & TREATMENT BAYS
+   ========================================================================== */
+
+.active-bays-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.active-bay-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease;
+}
+
+.active-bay-card:hover {
+    transform: translateY(-3px) scale(1.015);
+    box-shadow: var(--shadow-card-hover);
+    border-color: #CBDCE9;
+}
+
+.bay-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+}
+
+.bay-room-tag {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    background: #EBF4FC;
+    border: 1px solid #BBDEFB;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+}
+
+.bay-patient-info .patient-id {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.bay-patient-info h4 {
+    margin: 0.2rem 0;
+    color: var(--navy-dark);
+}
+
+.bay-time-info {
+    margin-top: 0.85rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   5. HOSPITAL PRIORITY QUEUE PATIENT CARDS
+   ========================================================================== */
+
+.visualizer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: #FFFFFF;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.view-switch-tabs {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.view-tab-btn {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    background: var(--bg-card-subtle);
+    border: 1px solid var(--border-light);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.view-tab-btn:hover {
+    background: #E8EEF4;
+    color: var(--navy-dark);
+}
+
+.view-tab-btn.active {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: #FFFFFF;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.25);
+}
+
+.queue-meta-summary {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+}
+
+.meta-tag {
+    background: #F1F6FA;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-light);
+    color: var(--text-secondary);
+}
+
+.meta-tag strong {
+    color: var(--navy-dark);
+}
+
+/* Triage Visualizer Guide */
+.triage-guide-strip {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.82rem;
+}
+
+.triage-guide-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: 600;
+}
+
+.triage-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.priority-queue-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1.25rem;
+}
+
+.queue-patient-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    padding: 1.35rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.28s cubic-bezier(0.2, 0, 0, 1),
+                box-shadow 0.28s cubic-bezier(0.2, 0, 0, 1),
+                border-color 0.25s ease;
+}
+
+.queue-patient-card:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: var(--shadow-card-hover);
+    border-color: #CBDCE9;
+}
+
+.queue-patient-card.next-spotlight {
+    border-top: 3px solid var(--primary-blue);
+    box-shadow: 0 4px 16px rgba(25, 118, 210, 0.12);
+}
+
+.card-rank-badge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.rank-num {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--text-muted);
+}
+
+.next-pill {
+    font-size: 0.7rem;
+    font-weight: 800;
+    background: var(--primary-blue);
+    color: #FFFFFF;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+}
+
+.patient-id-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.35rem;
+}
+
+.patient-name {
+    font-size: 1.15rem;
+    color: var(--navy-dark);
+    margin-bottom: 0.35rem;
+}
+
+.clinical-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.meta-label {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+}
+
+.meta-val {
+    font-weight: 600;
+    color: var(--navy-dark);
+}
+
+.doctor-val {
+    grid-column: span 2;
+}
+
+.card-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   6. BINARY HEAP TREE & ARRAY VISUALIZERS (LIGHT CLINICAL)
+   ========================================================================== */
+
+.heap-tree-container {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.tree-legend {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.4rem;
+}
+
+.root-dot { background: #E53935; }
+.invariant-dot { background: #1976D2; }
+
+.svg-scroll-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.heap-svg {
+    width: 100%;
+    min-width: 700px;
+    height: auto;
+}
+
+.heap-tree-node {
+    cursor: pointer;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.heap-tree-node:hover {
+    transform: scale(1.12);
+}
+
+.array-boxes-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1rem 0;
+}
+
+.array-cell-block {
+    display: flex;
+    flex-direction: column;
+    width: 130px;
+    transition: transform 0.2s ease;
+}
+
+.array-cell-block:hover {
+    transform: translateY(-2px);
+}
+
+.cell-index {
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 0.25rem;
+}
+
+.cell-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 0.65rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.25rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.cell-id { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--primary-blue); }
+.cell-name { font-size: 0.78rem; font-weight: 600; color: var(--navy-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.cell-time { font-size: 0.7rem; color: var(--text-muted); }
+
+/* ==========================================================================
+   7. SIMULATIONS: FIFO DEMO & COMPARISONS
+   ========================================================================== */
+
+.demo-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.demo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #EBF4FC;
+    color: var(--primary-blue);
+    border: 1px solid #BBDEFB;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+}
+
+.fifo-flow-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.flow-step-box {
+    background: #F8FBFE;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+}
+
+.step-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.step-badge.success { color: var(--success-green); }
+
+.patient-flow-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.flow-patient-item {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.2s ease, background 0.2s ease;
+    box-shadow: 0 1px 3px rgba(22, 50, 79, 0.04);
+}
+
+.flow-patient-item:hover {
+    transform: translateX(3px);
+    background: #FAFCFE;
+}
+
+.flow-patient-item.highlight-rank {
+    border-left: 3.5px solid var(--success-green);
+    background: #F1FBF5;
+}
+
+.flow-arrow-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.flow-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; }
+
+.treatment-rank {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--success-green);
+    margin-right: 0.5rem;
+}
+
+.explanation-callout {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: #E8F5E9;
+    border: 1px solid #C8E6C9;
+    border-radius: var(--radius-sm);
+    color: #1B5E20;
+}
+
+/* Side-by-side Comparative Cards */
+.comparison-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.arrival-stream-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.stream-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease;
+}
+
+.stream-card:hover {
+    transform: translateY(-3px);
+}
+
+.stream-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.stream-time { font-size: 0.78rem; color: var(--text-muted); }
+.condition-note { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.35rem; }
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.comparison-col {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+}
+
+.col-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.col-header i { font-size: 1.8rem; }
+.danger-header { color: var(--sev-5-red); }
+.success-header { color: var(--success-green); }
+
+.treatment-pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.pipeline-item {
+    background: #F8FBFE;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+}
+
+.pipeline-item:hover {
+    transform: translateX(3px);
+}
+
+.hazard-highlight {
+    background: #FDEDED;
+    border: 1.5px solid #FFCDD2;
+}
+
+.hazard-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--sev-5-red);
+}
+
+.success-highlight {
+    background: #E8F5E9;
+    border: 1.5px solid #C8E6C9;
+}
+
+.immediate-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--success-green);
+}
+
+.col-footer {
+    margin-top: auto;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+}
+
+.danger-footer { background: #FDEDED; border: 1px solid #FFCDD2; color: #B71C1C; }
+.success-footer { background: #E8F5E9; border: 1px solid #C8E6C9; color: #1B5E20; }
+
+/* ==========================================================================
+   8. CLINICAL DATA TABLES (CLEAN WHITE HOSPITAL GRID)
+   ========================================================================== */
+
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.data-table th {
+    background: #F8FBFE;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.95rem 1.15rem;
+    border-bottom: 1.5px solid var(--border-light);
+}
+
+.data-table td {
+    padding: 0.95rem 1.15rem;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--navy-dark);
+    transition: background 0.15s ease;
+}
+
+.data-table tbody tr {
+    transition: background 0.15s ease;
+}
+
+.data-table tbody tr:hover {
+    background: #F4F9FD;
+}
+
+/* ==========================================================================
+   9. ALGORITHM & PSEUDOCODE VIEWER
+   ========================================================================== */
+
+.algo-block {
+    margin-bottom: 2rem;
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease;
+}
+
+.algo-block:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.algo-header {
+    background: #F8FBFE;
+    padding: 0.85rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.algo-header h4 { font-family: var(--font-mono); font-size: 0.95rem; color: var(--primary-blue); }
+
+.code-pre {
+    padding: 1.25rem;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    background: #162436;
+    color: #E2E8F0;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+.kw { color: #F43F5E; font-weight: 700; }
+.fn { color: #38BDF8; font-weight: 600; }
+.cm { color: #94A3B8; font-style: italic; }
+.st { color: #34D399; }
+.num { color: #FBBF24; }
+
+/* ==========================================================================
+   10. TEST RUNNER METRICS & BADGES
+   ========================================================================== */
+
+.test-suite-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.test-metrics-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.test-metric-card {
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.test-metric-card.success { border-color: #A5D6A7; background: #F1FBF5; }
+.test-metric-card.danger { border-color: #FFCDD2; background: #FFF5F5; }
+.test-metric-card.info { border-color: #BBDEFB; background: #EBF4FC; }
+
+.metric-num { font-size: 1.75rem; font-weight: 800; font-family: var(--font-heading); color: var(--navy-dark); }
+.metric-label { font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
+
+.test-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    font-size: 0.76rem;
+    font-weight: 800;
+}
+
+.badge-pass { background: #E8F5E9; color: #2E7D32; border: 1px solid #A5D6A7; }
+.badge-fail { background: #FFEBEE; color: #C62828; border: 1px solid #FFCDD2; }
+
+/* ==========================================================================
+   11. TOAST NOTIFICATIONS & MODALS
+   ========================================================================== */
+
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 380px;
+    width: 100%;
+}
+
+.toast-item {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.15rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-success { border-left: 4px solid var(--success-green); }
+.toast-danger { border-left: 4px solid var(--sev-5-red); }
+.toast-critical { border-left: 4px solid var(--sev-5-red); background: #FFF9F9; }
+.toast-info { border-left: 4px solid var(--primary-blue); }
+.toast-warning { border-left: 4px solid var(--warning-amber); }
+
+.toast-icon { font-size: 1.25rem; }
+.toast-success .toast-icon { color: var(--success-green); }
+.toast-danger .toast-icon, .toast-critical .toast-icon { color: var(--sev-5-red); }
+.toast-info .toast-icon { color: var(--primary-blue); }
+.toast-warning .toast-icon { color: var(--warning-amber); }
+
+.toast-body strong { font-size: 0.9rem; color: var(--navy-dark); display: block; margin-bottom: 0.15rem; }
+.toast-body p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.35; }
+.toast-close { background: none; border: none; color: var(--text-muted); font-size: 1.2rem; cursor: pointer; margin-left: auto; }
+.toast-close:hover { color: var(--navy-dark); }
+.toast-fade-out { opacity: 0; transform: translateY(-10px) scale(0.96); }
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(22, 50, 79, 0.45);
+    backdrop-filter: blur(6px);
+    z-index: 1500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.modal-overlay.modal-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    width: 100%;
+    max-width: 540px;
+    box-shadow: 0 16px 40px rgba(22, 50, 79, 0.2);
+    overflow: hidden;
+    transform: scale(0.95);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.modal-open .modal-card {
+    transform: scale(1);
+}
+
+.modal-header {
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-light);
+    background: #FAFCFE;
+}
+
+.modal-header h3 {
+    color: var(--navy-dark);
+}
+
+.modal-body {
+    padding: 1.5rem;
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    padding: 1.15rem 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    border-top: 1px solid var(--border-light);
+    background: #FAFCFE;
+}
+
+/* ==========================================================================
+   12. SDG & REFLECTION MODULES
+   ========================================================================== */
+
+.sdg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.sdg-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease;
+}
+
+.sdg-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.sdg-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.sdg-3 { background: #4C9F38; }
+.sdg-9 { background: #F36E25; }
+.sdg-10 { background: #DD1367; }
+.sdg-11 { background: #FD9D24; }
+
+.reflection-callout {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-left: 4.5px solid var(--primary-blue);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+    .fifo-flow-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-main-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-meta-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .er-status-banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
